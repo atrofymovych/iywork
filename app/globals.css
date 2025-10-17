@@ -69,6 +69,7 @@ body {
     position: relative;
     min-height: 100vh;
     color: var(--clr-neutral-100);
+    background: linear-gradient(to bottom right, #1a3d28, #1b4423);
 }
 
 .logo-container {
