@@ -12,8 +12,8 @@ export default function Home() {
         maxOpacity={0.3}
         flickerChance={0.3}
       />
-      <main className="relative z-10">      
-        <h1>IY WORK • Вже скоро</h1>
+      <main className="relative z-10 font-bold">      
+        <h1 className='text-4xl'>IY WORK • Вже скоро</h1>
         <CountdownTimer />
       </main>
     </div>
