@@ -4,7 +4,7 @@ import Logo from './components/Logo';
 export default function Home() {
   return (
     <main>      
-      <h1>IY WORK • Již brzy</h1>
+      <h1>IY WORK • Вже скоро</h1>
       <CountdownTimer />
     </main>
   );
