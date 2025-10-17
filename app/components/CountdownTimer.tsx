@@ -79,36 +79,72 @@ export default function CountdownTimer() {
 
   const formatNumber = (num: number) => String(num).padStart(2, '0');
 
+  const getPluralForm = (number: number, singular: string, few: string, many: string) => {
+    const lastDigit = number % 10;
+    const lastTwoDigits = number % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+      return many;
+    }
+
+    if (lastDigit === 1) {
+      return singular;
+    }
+
+    if (lastDigit >= 2 && lastDigit <= 4) {
+      return few;
+    }
+
+    return many;
+  };
+
+  const getLabel = (value: number, type: 'days' | 'hours' | 'minutes' | 'seconds') => {
+    switch (type) {
+      case 'days':
+        return getPluralForm(value, 'день', 'дні', 'днів');
+      case 'hours':
+        return getPluralForm(value, 'година', 'години', 'годин');
+      case 'minutes':
+        return getPluralForm(value, 'хвилина', 'хвилини', 'хвилин');
+      case 'seconds':
+        return getPluralForm(value, 'секунда', 'секунди', 'секунд');
+    }
+  };
+
   const renderFlipCard = (
     value: number,
     prevValue: number,
-    label: string,
+    type: 'days' | 'hours' | 'minutes' | 'seconds',
     isFlipping: boolean
-  ) => (
-    <div className={`container-sub ${isFlipping ? 'flip' : ''}`} data-type={label}>
-      <div
-        className="clock"
-        data-before={formatNumber(value)}
-        data-after={formatNumber(prevValue)}
-      >
-        <div className="span">
-          <span></span>
-          <span></span>
-        </div>
-        <div className="card">
-          <div className="front">{formatNumber(value)}</div>
-          <div className="back">{formatNumber(prevValue)}</div>
+  ) => {
+    const label = getLabel(value, type);
+    
+    return (
+      <div className={`container-sub ${isFlipping ? 'flip' : ''}`} data-type={label}>
+        <div
+          className="clock"
+          data-before={formatNumber(value)}
+          data-after={formatNumber(prevValue)}
+        >
+          <div className="span">
+            <span></span>
+            <span></span>
+          </div>
+          <div className="card">
+            <div className="front">{formatNumber(value)}</div>
+            <div className="back">{formatNumber(prevValue)}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="container">
-      {renderFlipCard(timeLeft.days, prevTimeRef.current.days, 'днів', flip.days)}
-      {renderFlipCard(timeLeft.hours, prevTimeRef.current.hours, 'годин', flip.hours)}
-      {renderFlipCard(timeLeft.minutes, prevTimeRef.current.minutes, 'хвилин', flip.minutes)}
-      {renderFlipCard(timeLeft.seconds, prevTimeRef.current.seconds, 'секунд', flip.seconds)}
+      {renderFlipCard(timeLeft.days, prevTimeRef.current.days, 'days', flip.days)}
+      {renderFlipCard(timeLeft.hours, prevTimeRef.current.hours, 'hours', flip.hours)}
+      {renderFlipCard(timeLeft.minutes, prevTimeRef.current.minutes, 'minutes', flip.minutes)}
+      {renderFlipCard(timeLeft.seconds, prevTimeRef.current.seconds, 'seconds', flip.seconds)}
     </div>
   );
 }
