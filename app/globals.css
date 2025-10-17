@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 *,
 *::before,
 *::after {
@@ -439,6 +441,7 @@ footer a:hover svg {
     transform: translateY(-50%);
         }
     }
+  --animate-spin: spin 2s linear infinite
 }
 
 .dark {
@@ -473,4 +476,13 @@ footer a:hover svg {
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
 }

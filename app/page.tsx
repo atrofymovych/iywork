@@ -1,24 +1,22 @@
 import CountdownTimer from './components/CountdownTimer';
-import { BackgroundGradientAnimation } from '@/components/ui/shadcn-io/background-gradient-animation';
+import { FlickeringGrid } from '@/components/ui/shadcn-io/flickering-grid';
 
 export default function Home() {
   return (
-    <BackgroundGradientAnimation
-      gradientBackgroundStart="rgb(35, 65, 45)"
-      gradientBackgroundEnd="rgb(40, 80, 50)"
-      firstColor="40, 150, 60"
-      secondColor="60, 200, 80"
-      thirdColor="100, 220, 120"
-      fourthColor="50, 180, 70"
-      fifthColor="80, 190, 90"
-      pointerColor="90, 200, 110"
-      interactive={true}
-    >
-      <main>      
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#1a3d28] to-[#1b4423] relative flex items-center justify-center antialiased overflow-hidden">
+      <FlickeringGrid 
+        className="absolute inset-0 z-0"
+        squareSize={4}
+        gridGap={6}
+        color="rgb(255, 255, 255)"
+        maxOpacity={0.3}
+        flickerChance={0.3}
+      />
+      <main className="relative z-10">      
         <h1>IY WORK • Вже скоро</h1>
         <CountdownTimer />
       </main>
-    </BackgroundGradientAnimation>
+    </div>
   );
 }
 
