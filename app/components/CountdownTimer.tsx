@@ -105,10 +105,10 @@ export default function CountdownTimer() {
 
   return (
     <div className="container">
-      {renderFlipCard(timeLeft.days, prevTimeRef.current.days, 'dny', flip.days)}
-      {renderFlipCard(timeLeft.hours, prevTimeRef.current.hours, 'hodiny', flip.hours)}
-      {renderFlipCard(timeLeft.minutes, prevTimeRef.current.minutes, 'minuty', flip.minutes)}
-      {renderFlipCard(timeLeft.seconds, prevTimeRef.current.seconds, 'sekundy', flip.seconds)}
+      {renderFlipCard(timeLeft.days, prevTimeRef.current.days, 'днів', flip.days)}
+      {renderFlipCard(timeLeft.hours, prevTimeRef.current.hours, 'годин', flip.hours)}
+      {renderFlipCard(timeLeft.minutes, prevTimeRef.current.minutes, 'хвилин', flip.minutes)}
+      {renderFlipCard(timeLeft.seconds, prevTimeRef.current.seconds, 'секунд', flip.seconds)}
     </div>
   );
 }

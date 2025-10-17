@@ -9,8 +9,8 @@ const redHatText = Red_Hat_Text({
 });
 
 export const metadata: Metadata = {
-  title: 'Odpočítávání spuštění',
-  description: 'Brzy spouštíme',
+  title: 'Запуск вже скоро',
+  description: 'Запуск вже скоро - IY WORK',
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs">
+    <html lang="uk">
       <head>
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
       </head>
