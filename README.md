@@ -1,45 +1,42 @@
-# Frontend Mentor - Launch countdown timer solution
+# Odpočítávání spuštění
 
-This is a solution to the [Launch countdown timer challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+Next.js aplikace s odpočítáváním do 1. ledna 2026.
 
-## Table of contents
+## Technologie
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- CSS Custom Properties
 
-## Overview
+## Funkce
 
-### The challenge
+- Animované překlápění karet při změně čísel
+- Responzivní design
+- Odpočítávání do 1. ledna 2026
+- Český jazyk rozhraní
 
-Users should be able to:
+## Instalace
 
-- See hover states for all interactive elements on the page
-- See a live countdown timer that ticks down every second (start the count at 14 days)
-- **Bonus**: When a number changes, make the card flip from the middle
+```bash
+npm install
+```
 
-### Screenshot
+## Spuštění vývojového serveru
 
-![](images/screenshot.png)
+```bash
+npm run dev
+```
 
-### Links
+Otevřete [http://localhost:3000](http://localhost:3000) ve vašem prohlížeči.
 
-- Solution URL: [Solution URL](https://github.com/K4UNG/project-18-launch-countdown-timer-frontendmentor)
-- Live Site URL: [Live URL](https://k4ung18.netlify.app)
+## Sestavení pro produkci
 
-## My process
+```bash
+npm run build
+npm start
+```
 
-### Built with
+## Původní výzva
 
-- Semantic HTML5 markup
-- CSS custom properties
-- JavaScript
-
-
-### What I learned
-
-I've been wanting to do this challenge ever since I started learning JavaScript but was not quite sure how to do the flip animation. Not that I've enough knowledge, I was able to build this. The logic was a bit tricker than I expected and overall, it was a great experience.
+Tento projekt je založen na [Launch countdown timer challenge od Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-).

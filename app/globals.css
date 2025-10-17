@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Red+Hat+Text:wght@400;600;500;700&display=swap');
-
 *,
 *::before,
 *::after {
@@ -10,13 +8,14 @@
 
 :root {
     --clr-neutral-100: hsl(0, 0%, 100%);
-    --clr-neutral-700: hsl(236, 21%, 26%);
-    --clr-neutral-750: hsl(240, 22%, 21%);
-    --clr-neutral-800: hsl(235, 16%, 14%);
-    --clr-neutral-900: hsl(234, 17%, 12%);
+    --clr-green-dark: hsl(145, 63%, 25%);
+    --clr-green-medium: hsl(145, 63%, 30%);
+    --clr-green-light: hsl(145, 40%, 45%);
+    --clr-card-bg: hsl(145, 25%, 20%);
+    --clr-card-shadow: hsl(145, 40%, 15%);
 
-    --clr-primary-500: hsl(237, 18%, 59%);
-    --clr-primary-400: hsl(345, 95%, 68%);
+    --clr-primary-500: hsl(145, 30%, 60%);
+    --clr-primary-400: hsl(0, 0%, 100%);
 
     --fs-400: .95rem;
     --fs-600: 1.5rem;
@@ -32,34 +31,53 @@
 }
 
 body {
-    font-family: 'Red Hat Text', sans-serif;
     position: relative;
     min-height: 100vh;
-    background-color: var(--clr-neutral-800);
+    background: linear-gradient(135deg, var(--clr-green-dark) 0%, var(--clr-green-medium) 100%);
     color: var(--clr-neutral-100);
     padding: 2.5rem 1.5rem;
-    background-image: url('images/bg-stars.svg');
-    background-position: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.hills {
+.logo-container {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }
 
-.hills img {
-    width: 150%;
+.logo-container svg {
+    height: 40px;
+    width: auto;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: var(--fw-400);
+    color: var(--clr-neutral-100);
+    letter-spacing: 1px;
+}
+
+.logo-text::before {
+    content: '•';
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
 }
 
 main {
     width: 100%;
     max-width: 400px;
+    z-index: 10;
 }
 
 h1 {
@@ -75,7 +93,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    margin-bottom: 15rem;
+    margin-bottom: 3rem;
 }
 
 .container-sub {
@@ -88,7 +106,7 @@ h1 {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: var(--clr-neutral-900);
+    background-color: var(--clr-card-shadow);
     border-radius: .5rem;
     left: 0;
     top: 7px;
@@ -124,7 +142,7 @@ h1 {
     position: absolute;
     width: var(--edge-size);
     height: var(--edge-size);
-    background-color: var(--clr-neutral-900);
+    background-color: var(--clr-green-medium);
     border-radius: 50%;
 }
 
@@ -156,7 +174,7 @@ h1 {
     line-height: 0;
     position: absolute;
     overflow: hidden;
-    background-color: var(--clr-neutral-700);
+    background-color: var(--clr-card-bg);
 }
 
 .clock::before {
@@ -174,7 +192,6 @@ h1 {
     border-top-left-radius: var(--border);
     border-top-right-radius: var(--border);
     filter: brightness(85%);
-    border-bottom: 1px solid black;
 }
 
 .flip .card {
@@ -211,14 +228,13 @@ h1 {
     justify-content: center;
     overflow: hidden;
     backface-visibility: hidden;
-    background-color: var(--clr-neutral-700);
+    background-color: var(--clr-card-bg);
 }
 
 .front {
     align-items: flex-end;
     border-top-left-radius: var(--border);
     border-top-right-radius: var(--border);
-    border-bottom: 1px solid black;
     filter: brightness(85%);
 }
 
@@ -235,7 +251,7 @@ h1 {
     content: '';
     width: var(--edge-size);
     height: var(--edge-size);
-    background: var(--clr-neutral-900);
+    background: var(--clr-green-medium);
     position: absolute;
     border-radius: 50%;
 }
@@ -265,8 +281,8 @@ h1 {
 }
 
 footer {
-    position: absolute;
-    bottom: 100px;
+    margin-top: 4rem;
+    position: relative;
 }
 
 footer ul {
@@ -276,12 +292,12 @@ footer ul {
 }
 
 footer svg {
-    fill: #8385A9;
+    fill: rgba(255, 255, 255, 0.6);
     transition: fill .2s;
 }
 
 footer a:hover svg {
-    fill: var(--clr-primary-400);
+    fill: var(--clr-neutral-100);
 }
 
 @media (min-width: 800px) {
@@ -289,11 +305,10 @@ footer a:hover svg {
         --fs-800: 4.5rem;
 
         --card-height: 130px;
-        --border: .6rem;
     }
 
-    .hills img {
-        width: 100%;
+    .logo-container svg {
+        height: 50px;
     }
 
     main {
@@ -314,3 +329,4 @@ footer a:hover svg {
         bottom: -40px;
     }
 }
+
